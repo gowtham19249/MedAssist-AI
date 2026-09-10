@@ -1,0 +1,18 @@
+┌─────────────────────────────────┐
+│       Symptom Checker            │
+│                                  │
+│ Select Symptoms:                 │
+│                                  │
+│ ☑ Fever                          │
+│ ☐ Headache                       │
+│ ☑ Fatigue                        │
+│ ☐ Cough                          │
+│ ☐ Vomiting                       │
+│ ☐ Muscle Pain                    │
+│                                  │
+│ Severity: [ Moderate ▼ ]         │
+│                                  │
+│ Duration: [ 3 days ▼ ]           │
+│                                  │
+│       [ SUBMIT SYMPTOMS ]        │
+└─────────────────────────────────┘

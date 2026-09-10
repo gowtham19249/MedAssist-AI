@@ -1,0 +1,6 @@
+Patient_ID,Age,Gender,Blood_Group,Primary_Symptom,Severity,Duration_Days,Diagnosed_Disease
+P001,45,Male,O+,itching,High,3,Fungal infection
+P002,28,Female,A-,continuous_sneezing,Medium,2,Allergy
+P003,52,Male,B+,stomach_pain,High,5,GERD
+P004,35,Female,O-,vomiting,Medium,1,Chronic cholestasis
+P005,61,Male,AB+,skin_rash,Low,4,Drug Reaction

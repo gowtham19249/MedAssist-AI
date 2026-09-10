@@ -1,0 +1,15 @@
+┌─────────────────────────────────────┐
+│ MedAssist AI              Profile ▼ │
+├─────────────────────────────────────┤
+│                                     │
+│ Welcome, User                       │
+│                                     │
+│  [ Check Symptoms ]                 │
+│                                     │
+│  [ My Profile ]                     │
+│                                     │
+│  [ Medical History ]                │
+│                                     │
+│ Recent Assessments                  │
+│                                     │
+└─────────────────────────────────────┘

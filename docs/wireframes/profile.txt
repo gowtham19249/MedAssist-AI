@@ -1,0 +1,15 @@
+┌────────────────────────────────┐
+│       Patient Profile          │
+│                                │
+│ Name:                          │
+│ Age:                           │
+│ Gender:                        │
+│ Height:                        │
+│ Weight:                        │
+│ Blood Group:                   │
+│                                │
+│ Existing Conditions:           │
+│ [__________________________]   │
+│                                │
+│          [ SAVE ]              │
+└────────────────────────────────┘
