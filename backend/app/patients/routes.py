@@ -1,17 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
 from app.database.connection import get_db
 from app.database.models import PatientProfile, User
-from app.auth.jwt import get_current_user
+from app.auth.security import get_current_user
+from app.patients.schemas import ProfileCreate
 
 router = APIRouter()
-
-class ProfileCreate(BaseModel):
-    age: int
-    gender: str
-    blood_pressure: str
-    cholesterol: str
 
 @router.post("/profile")
 def create_profile(profile: ProfileCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
