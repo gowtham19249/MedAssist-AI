@@ -1,15 +1,35 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import Symptoms from './pages/Symptoms';
+import ProtectedRoute from './components/ProtectedRoute';
 
-function App() {
+function Home() {
+  const token = localStorage.getItem('token');
+
   return (
     <div className="app-container">
       <nav className="navbar">
         <div className="logo">🩺 MedAssist AI</div>
         <div className="nav-links">
-          <a href="#dashboard">Dashboard</a>
-          <a href="#symptoms">Check Symptoms</a>
-          <a href="#profile" className="profile-btn">User Profile</a>
+          {token ? (
+            <>
+              <Link to="/dashboard" style={{ marginRight: '15px', color: '#2c3e50', textDecoration: 'none', fontWeight: '500' }}>Dashboard</Link>
+              <button onClick={() => {
+                  localStorage.removeItem('token');
+                  window.location.reload();
+              }} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e74c3c', fontWeight: 'bold' }}>Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" style={{ marginRight: '15px', color: '#2c3e50', textDecoration: 'none', fontWeight: '500' }}>Login</Link>
+              <Link to="/register" className="profile-btn">Register</Link>
+            </>
+          )}
         </div>
       </nav>
 
@@ -21,17 +41,38 @@ function App() {
           <div className="card">
             <h3>🔍 Check Symptoms</h3>
             <p>Enter your symptoms to get a preliminary disease prediction.</p>
-            <button className="primary-btn">Start Assessment</button>
+            <Link to={token ? "/symptoms" : "/login"}>
+              <button className="primary-btn">Start Assessment</button>
+            </Link>
           </div>
           
           <div className="card">
             <h3>📋 Medical History</h3>
             <p>View your past assessments and saved medical conditions.</p>
-            <button className="secondary-btn">View History</button>
+            <Link to={token ? "/dashboard" : "/login"}>
+              <button className="secondary-btn">View History</button>
+            </Link>
           </div>
         </div>
       </main>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Secure Protected Routes */}
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/symptoms" element={<ProtectedRoute><Symptoms /></ProtectedRoute>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
